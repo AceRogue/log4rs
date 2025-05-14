@@ -14,6 +14,7 @@ use crate::config::Deserializable;
 #[cfg(feature = "config_parsing")]
 use crate::filter::FilterConfig;
 
+mod buffered_console;
 #[cfg(feature = "console_appender")]
 pub mod console;
 #[cfg(feature = "file_appender")]
@@ -251,3 +252,11 @@ mod test {
         }
     }
 }
+
+pub use self::{
+    buffered_console::{BufferedConsoleAppender, BufferedConsoleAppenderBuilder},
+    console::{ConsoleAppender, ConsoleAppenderBuilder, Target},
+};
+
+#[cfg(feature = "config_parsing")]
+pub use self::buffered_console::BufferedConsoleAppenderDeserializer;

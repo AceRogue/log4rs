@@ -39,14 +39,14 @@ pub struct ConsoleAppenderConfig {
 
 #[cfg(feature = "config_parsing")]
 #[derive(Debug, serde::Deserialize)]
-enum ConfigTarget {
+pub(crate) enum ConfigTarget {
     #[serde(rename = "stdout")]
     Stdout,
     #[serde(rename = "stderr")]
     Stderr,
 }
 
-enum Writer {
+pub(crate) enum Writer {
     Tty(ConsoleWriter),
     Raw(StdWriter),
 }
@@ -69,7 +69,7 @@ impl Writer {
     }
 }
 
-enum WriterLock<'a> {
+pub(crate) enum WriterLock<'a> {
     Tty(ConsoleWriterLock<'a>),
     Raw(SimpleWriter<StdWriterLock<'a>>),
 }

@@ -22,7 +22,7 @@ pub mod writer;
 
 #[allow(dead_code)]
 #[cfg(windows)]
-const NEWLINE: &'static str = "\r\n";
+const NEWLINE: &str = "\r\n";
 
 #[allow(dead_code)]
 #[cfg(not(windows))]

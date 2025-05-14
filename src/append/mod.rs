@@ -14,7 +14,8 @@ use crate::config::Deserializable;
 #[cfg(feature = "config_parsing")]
 use crate::filter::FilterConfig;
 
-mod buffered_console;
+#[cfg(feature = "console_appender")]
+pub mod buffered_console;
 #[cfg(feature = "console_appender")]
 pub mod console;
 #[cfg(feature = "file_appender")]
